@@ -1,5 +1,5 @@
 import React from "react";
-import { ShapeButton } from './ShapeButton';
+import { CentralShapesGrid } from './CentralShapesGrid';
 
 export interface ShapesGridProps {
     numOfShapes: 4 | 9 | 13 | 17;
@@ -9,39 +9,66 @@ export const ShapesGrid: React.FC<ShapesGridProps> = ({numOfShapes}) => {
     return (
         <div>
             { numOfShapes === 4 && <p>Grid with 4 shapes</p> }
+
             { numOfShapes === 9 && (
-                <div className="grid grid-cols-3 grid-rows-3 gap-4">
+                <CentralShapesGrid />
+            )}
+
+            { numOfShapes === 13 || numOfShapes === 17 && (
+                <div className="grid grid-cols-5 grid-rows-5 gap-4">
                     <div className="w-16 h-16 flex justify-center items-center">
-                        <ShapeButton shape='rectangle' color='red'/>
+                        {numOfShapes === 17 && (
+                            <p>S</p>
+                        )}
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
-                        <ShapeButton shape='circle' color='blue'/>
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
-                        <ShapeButton shape='rectangle' color='yellow'/>
+                        <p>T</p>
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
-                        <ShapeButton shape='circle' color='yellow'/>
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
-                        <ShapeButton shape='star' color='purple'/>
+                        {numOfShapes === 17 && (
+                            <p>S</p>
+                        )}
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
-                        <ShapeButton shape='circle' color='green'/>
+                    </div>
+                    <div className="col-start-2 col-end-5 row-start-2 row-end-5"> 
+                        <CentralShapesGrid />
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
-                        <ShapeButton shape='rectangle' color='green'/>
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
-                        <ShapeButton shape='circle' color='red'/>
+                        T
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
-                        <ShapeButton shape='rectangle' color='blue'/>
+                        T
+                    </div>
+                    <div className="w-16 h-16 flex justify-center items-center">
+                    </div>
+                    <div className="w-16 h-16 flex justify-center items-center">
+                    </div>
+                    <div className="w-16 h-16 flex justify-center items-center">
+                        {numOfShapes === 17 && (
+                            <p>S</p>
+                        )}
+                    </div>
+                    <div className="w-16 h-16 flex justify-center items-center">
+                    </div>
+                    <div className="w-16 h-16 flex justify-center items-center">
+                        <p>T</p>
+                    </div>
+                    <div className="w-16 h-16 flex justify-center items-center">
+                    </div>
+                    <div className="w-16 h-16 flex justify-center items-center">
+                        {numOfShapes === 17 && (
+                            <p>S</p>
+                        )}
                     </div>
                 </div>
             )}
-            { numOfShapes === 13 && <p>Grid with 13 shapes</p> }
-            { numOfShapes === 17 && <p>Grid with 17 shapes</p> }
         </div>
     );
 }
