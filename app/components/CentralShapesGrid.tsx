@@ -3,7 +3,7 @@ import { ShapeButton } from './ShapeButton';
 
 type ShapeObject = { 
     id: string;
-    shape: 'rectangle' | 'circle' | 'star' | 'triangle';
+    shape: 'square' | 'circle' | 'star' | 'triangle';
     color: 'red' | 'blue' | 'yellow' | 'green' | 'purple';
 }[];
 
@@ -12,7 +12,7 @@ export const CentralShapesGrid: React.FC = () => {
     const centralShapes: ShapeObject = [
         { 
             id: crypto.randomUUID(),
-            shape: 'rectangle', 
+            shape: 'square', 
             color: 'red', 
         }, 
         { 
@@ -22,7 +22,7 @@ export const CentralShapesGrid: React.FC = () => {
         },
         { 
             id: crypto.randomUUID(),
-            shape: 'rectangle', 
+            shape: 'square', 
             color: 'yellow', 
         },
         { 
@@ -42,7 +42,7 @@ export const CentralShapesGrid: React.FC = () => {
         },
         { 
             id: crypto.randomUUID(),
-            shape: 'rectangle', 
+            shape: 'square', 
             color: 'green', 
         }, 
         { 
@@ -52,7 +52,7 @@ export const CentralShapesGrid: React.FC = () => {
         },
         { 
             id: crypto.randomUUID(),
-            shape: 'rectangle', 
+            shape: 'square', 
             color: 'blue', 
         }
     ];

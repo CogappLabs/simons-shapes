@@ -1,14 +1,15 @@
 'use client';
 import React, { useContext } from 'react';
-import { AppStateContext, AppStateContextType } from '../state/AppState'
+import { AppStateContext, AppStateContextType } from '../state/AppState';
+import getSimonsInstructions from '../utilities/getSimonsInstructions';
 
 export interface ShapeButtonProps {
-    shape: 'rectangle' | 'circle' | 'star' | 'triangle';
+    shape: 'square' | 'circle' | 'star' | 'triangle';
     color: 'red' | 'blue' | 'yellow' | 'green' | 'purple';
 }
 
 export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color}) => {
-    const { loggedAnswers, setLoggedAnswers } = useContext(AppStateContext as React.Context<AppStateContextType>);
+    const { loggedAnswers, setLoggedAnswers, simonsInstructions, roundCount, setRoundCount, setSimonsInstructions } = useContext(AppStateContext as React.Context<AppStateContextType>);
 
     let fill: string = '';
 
@@ -24,17 +25,40 @@ export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color}) => {
         fill = '#8400FF';
     }
 
+    const checkAnswers = (answers: string[]): boolean => { 
+        
+        if (answers.join(', ') !== simonsInstructions.join(', ')) {
+            console.log('Game lost');
+            setLoggedAnswers([]);
+            setSimonsInstructions([]);
+            setRoundCount(0);
+            return false;
+        }
+    
+        console.log('Round won');
+        const updatedRoundCount = roundCount + 1;
+        setRoundCount(updatedRoundCount);
+        setSimonsInstructions(getSimonsInstructions(updatedRoundCount, answers));
+        setLoggedAnswers([]);
+        return true;
+    }
+
     const handleClick = (): void => {
         const updatedLoggedAnswers = [...loggedAnswers, `${color} ${shape}`];
 
         console.log(updatedLoggedAnswers);
-        
+
         setLoggedAnswers(updatedLoggedAnswers);
+
+        if (updatedLoggedAnswers.length === simonsInstructions.length) {
+            // TODO: Can I pass loggedAnswers?
+            checkAnswers(updatedLoggedAnswers);
+        }
     }
 
     return (
         <button onClick={handleClick}>
-            {shape === 'rectangle' && (
+            {shape === 'square' && (
                 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="64" height="64" rx="10" fill={fill}/>
                 </svg>
