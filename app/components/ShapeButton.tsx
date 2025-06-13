@@ -33,8 +33,7 @@ export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color, rotation
             setSimonsInstructions(['Game over!']);
             setRoundCount(1);
             setIsStartButtonDisabled(false);
-            setLevel(1);
-            setNumOfShapes(4);
+            setLevel(1);     
             return false;
         }
     
