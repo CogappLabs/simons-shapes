@@ -12,6 +12,8 @@ export interface AppStateContextType {
     setIsStartButtonDisabled: React.Dispatch<React.SetStateAction<boolean>>;
     level: number;
     setLevel: React.Dispatch<React.SetStateAction<number>>;
+    numOfShapes: 4 | 9 | 13 | 17;
+    setNumOfShapes: React.Dispatch<React.SetStateAction<4 | 9 | 13 | 17>>;
 }
 
 export const AppStateContext = createContext<AppStateContextType>({
@@ -25,6 +27,8 @@ export const AppStateContext = createContext<AppStateContextType>({
     setIsStartButtonDisabled: () => {},
     level: 1,
     setLevel: () => {},
+    numOfShapes: 9,
+    setNumOfShapes: () => {},
 });
 
 const AppStateProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
@@ -33,6 +37,7 @@ const AppStateProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) =
     const [roundCount, setRoundCount] = useState<number>(1);
     const [isStartButtonDisabled, setIsStartButtonDisabled] = useState<boolean>(false);
     const [level, setLevel] = useState<number>(1);
+    const [numOfShapes, setNumOfShapes] = useState<4 | 9 | 13 | 17>(9);
 
 
     return (
@@ -48,6 +53,8 @@ const AppStateProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) =
                 setIsStartButtonDisabled,
                 level,
                 setLevel,
+                numOfShapes,
+                setNumOfShapes
             }}
         >
             {children}

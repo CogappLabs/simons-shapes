@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from 'react';
+import { AppStateContext, AppStateContextType } from '../state/AppState';
 import { CentralShapesGrid } from './CentralShapesGrid';
+import { ShapeButton } from './ShapeButton';
 
-export interface ShapesGridProps {
-    numOfShapes: 4 | 9 | 13 | 17;
-}
+export const ShapesGrid: React.FC = () => {
+    const { numOfShapes } = useContext(AppStateContext as React.Context<AppStateContextType>);
+    console.log('Num of shapes', numOfShapes);
 
-export const ShapesGrid: React.FC<ShapesGridProps> = ({numOfShapes}) => {
     return (
         <div>
             { numOfShapes === 4 && <p>Grid with 4 shapes</p> }
@@ -14,23 +15,23 @@ export const ShapesGrid: React.FC<ShapesGridProps> = ({numOfShapes}) => {
                 <CentralShapesGrid />
             )}
 
-            { numOfShapes === 13 || numOfShapes === 17 && (
+            { (numOfShapes === 13 || numOfShapes === 17) && (
                 <div className="grid grid-cols-5 grid-rows-5 gap-4">
                     <div className="w-16 h-16 flex justify-center items-center">
                         {numOfShapes === 17 && (
-                            <p>S</p>
+                            <ShapeButton shape='star' color='yellow'/>
                         )}
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
-                        <p>T</p>
+                        <ShapeButton shape='triangle' color='green' rotation='upright'/>
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
                         {numOfShapes === 17 && (
-                            <p>S</p>
+                            <ShapeButton shape='star' color='blue'/>
                         )}
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
@@ -41,10 +42,10 @@ export const ShapesGrid: React.FC<ShapesGridProps> = ({numOfShapes}) => {
                     <div className="w-16 h-16 flex justify-center items-center">
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
-                        T
+                        <ShapeButton shape='triangle' color='blue' rotation='side-left'/>
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
-                        T
+                        <ShapeButton shape='triangle' color='red' rotation='side-right'/>
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
                     </div>
@@ -52,19 +53,19 @@ export const ShapesGrid: React.FC<ShapesGridProps> = ({numOfShapes}) => {
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
                         {numOfShapes === 17 && (
-                            <p>S</p>
+                            <ShapeButton shape='star' color='red'/>
                         )}
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
-                        <p>T</p>
+                        <ShapeButton shape='triangle' color='yellow' rotation='upside-down'/>
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
                     </div>
                     <div className="w-16 h-16 flex justify-center items-center">
                         {numOfShapes === 17 && (
-                            <p>S</p>
+                            <ShapeButton shape='star' color='green'/>
                         )}
                     </div>
                 </div>

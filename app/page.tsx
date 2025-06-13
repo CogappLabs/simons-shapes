@@ -23,7 +23,7 @@ export default function Home() {
           <SimonsDisplay />
         </div>
         <div className="flex align-center justify-center w-full">
-          <ShapesGrid numOfShapes={9} />
+          <ShapesGrid />
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
