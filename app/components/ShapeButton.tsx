@@ -1,5 +1,6 @@
 'use client';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppStateContext, AppStateContextType } from '../state/AppState'
 
 export interface ShapeButtonProps {
     shape: 'rectangle' | 'circle' | 'star' | 'triangle';
@@ -7,6 +8,8 @@ export interface ShapeButtonProps {
 }
 
 export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color}) => {
+    const { loggedAnswers, setLoggedAnswers } = useContext(AppStateContext as React.Context<AppStateContextType>);
+
     let fill: string = '';
 
     if (color === 'red') {
@@ -22,7 +25,11 @@ export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color}) => {
     }
 
     const handleClick = (): void => {
-        console.log(`Clicked ${color} ${shape}`);
+        const updatedLoggedAnswers = [...loggedAnswers, `${color} ${shape}`];
+
+        console.log(updatedLoggedAnswers);
+        
+        setLoggedAnswers(updatedLoggedAnswers);
     }
 
     return (
