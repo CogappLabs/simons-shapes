@@ -9,7 +9,7 @@ export interface ShapeButtonProps {
 }
 
 export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color}) => {
-    const { loggedAnswers, setLoggedAnswers, simonsInstructions, roundCount, setRoundCount, setSimonsInstructions } = useContext(AppStateContext as React.Context<AppStateContextType>);
+    const { loggedAnswers, setLoggedAnswers, simonsInstructions, roundCount, setRoundCount, setSimonsInstructions, setIsStartButtonDisabled } = useContext(AppStateContext as React.Context<AppStateContextType>);
 
     let fill: string = '';
 
@@ -30,8 +30,9 @@ export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color}) => {
         if (answers.join(', ') !== simonsInstructions.join(', ')) {
             console.log('Game lost');
             setLoggedAnswers([]);
-            setSimonsInstructions([]);
-            setRoundCount(0);
+            setSimonsInstructions(['Game over!']);
+            setRoundCount(1);
+            setIsStartButtonDisabled(false);
             return false;
         }
     

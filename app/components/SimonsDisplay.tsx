@@ -6,7 +6,7 @@ export const SimonsDisplay: React.FC = () => {
     const { simonsInstructions, setSimonsInstructions } = useContext(AppStateContext as React.Context<AppStateContextType>);
 
     return (
-        <div id="scroll-container" className="w-full">
+        <div key={simonsInstructions.join(', ')} id="scroll-container" className="w-full">
             <div id="scroll-text">Simon says: {simonsInstructions.join(', ')}</div>
         </div>
     );

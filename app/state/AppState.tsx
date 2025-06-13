@@ -8,6 +8,8 @@ export interface AppStateContextType {
     setSimonsInstructions: React.Dispatch<React.SetStateAction<string[]>>;
     roundCount: number;
     setRoundCount: React.Dispatch<React.SetStateAction<number>>;
+    isStartButtonDisabled: boolean;
+    setIsStartButtonDisabled: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const AppStateContext = createContext<AppStateContextType>({
@@ -17,12 +19,15 @@ export const AppStateContext = createContext<AppStateContextType>({
     setSimonsInstructions: () => {},
     roundCount: 1,
     setRoundCount: () => {},
+    isStartButtonDisabled: false,
+    setIsStartButtonDisabled: () => {},
 });
 
 const AppStateProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
     const [loggedAnswers, setLoggedAnswers] = useState<string[]>([]);
     const [simonsInstructions, setSimonsInstructions] = useState<string[]>([]);
     const [roundCount, setRoundCount] = useState<number>(1);
+    const [isStartButtonDisabled, setIsStartButtonDisabled] = useState<boolean>(false);
 
 
     return (
@@ -34,6 +39,8 @@ const AppStateProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) =
                 setSimonsInstructions,
                 roundCount, 
                 setRoundCount, 
+                isStartButtonDisabled,
+                setIsStartButtonDisabled,
             }}
         >
             {children}

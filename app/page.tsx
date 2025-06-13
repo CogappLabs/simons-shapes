@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col row-start-2 items-center sm:items-start">
-        <div className="mb-8">
+        <div className="mb-4">
           <h1 className="mb-4 text-2xl font-bold">Simon Says</h1>
           <p className="mb-2">
             <span className="font-bold">
@@ -16,12 +16,14 @@ export default function Home() {
               Repeat Simon&apos;s instructions by pressing the buttons in the right order!
           </p>
         </div>
-        <SimonsDisplay  />
+        <div className="mb-8">
+          <StartButton />
+        </div>
+        <div className="mb-4 w-full">
+          <SimonsDisplay />
+        </div>
         <div className="flex align-center justify-center w-full">
           <ShapesGrid numOfShapes={9} />
-        </div>
-        <div>
-          <StartButton />
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
