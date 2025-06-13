@@ -10,6 +10,8 @@ export interface AppStateContextType {
     setRoundCount: React.Dispatch<React.SetStateAction<number>>;
     isStartButtonDisabled: boolean;
     setIsStartButtonDisabled: React.Dispatch<React.SetStateAction<boolean>>;
+    level: number;
+    setLevel: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const AppStateContext = createContext<AppStateContextType>({
@@ -21,6 +23,8 @@ export const AppStateContext = createContext<AppStateContextType>({
     setRoundCount: () => {},
     isStartButtonDisabled: false,
     setIsStartButtonDisabled: () => {},
+    level: 1,
+    setLevel: () => {},
 });
 
 const AppStateProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
@@ -28,6 +32,7 @@ const AppStateProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) =
     const [simonsInstructions, setSimonsInstructions] = useState<string[]>([]);
     const [roundCount, setRoundCount] = useState<number>(1);
     const [isStartButtonDisabled, setIsStartButtonDisabled] = useState<boolean>(false);
+    const [level, setLevel] = useState<number>(1);
 
 
     return (
@@ -41,6 +46,8 @@ const AppStateProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) =
                 setRoundCount, 
                 isStartButtonDisabled,
                 setIsStartButtonDisabled,
+                level,
+                setLevel,
             }}
         >
             {children}

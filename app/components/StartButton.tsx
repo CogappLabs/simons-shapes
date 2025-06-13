@@ -3,12 +3,11 @@ import { AppStateContext, AppStateContextType } from '../state/AppState';
 import getSimonsInstructions from '../utilities/getSimonsInstructions';
 
 export const StartButton: React.FC = () => {
-    const { setSimonsInstructions, isStartButtonDisabled, setIsStartButtonDisabled } = useContext(AppStateContext as React.Context<AppStateContextType>);
-    const { roundCount } = useContext(AppStateContext as React.Context<AppStateContextType>)
+    const { setSimonsInstructions, isStartButtonDisabled, setIsStartButtonDisabled, roundCount, level } = useContext(AppStateContext as React.Context<AppStateContextType>);
 
     const handleSubmit = () => {
         setSimonsInstructions([]);
-        setSimonsInstructions(getSimonsInstructions(roundCount));
+        setSimonsInstructions(getSimonsInstructions(level, roundCount));
         setIsStartButtonDisabled(true);
     }
 

@@ -9,7 +9,7 @@ export interface ShapeButtonProps {
 }
 
 export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color}) => {
-    const { loggedAnswers, setLoggedAnswers, simonsInstructions, roundCount, setRoundCount, setSimonsInstructions, setIsStartButtonDisabled } = useContext(AppStateContext as React.Context<AppStateContextType>);
+    const { loggedAnswers, setLoggedAnswers, simonsInstructions, roundCount, setRoundCount, setSimonsInstructions, setIsStartButtonDisabled, level, setLevel } = useContext(AppStateContext as React.Context<AppStateContextType>);
 
     let fill: string = '';
 
@@ -33,14 +33,25 @@ export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color}) => {
             setSimonsInstructions(['Game over!']);
             setRoundCount(1);
             setIsStartButtonDisabled(false);
+            setLevel(1);
             return false;
         }
     
         console.log('Round won');
         const updatedRoundCount = roundCount + 1;
         setRoundCount(updatedRoundCount);
-        setSimonsInstructions(getSimonsInstructions(updatedRoundCount, answers));
+        setSimonsInstructions(getSimonsInstructions(level, updatedRoundCount, answers));
         setLoggedAnswers([]);
+
+        if (updatedRoundCount > 3 && updatedRoundCount <= 6) {
+            setLevel(2);
+            // setNumOfShapes(13);
+            console.log('New level reached: 2');
+        } else if (updatedRoundCount > 6 && updatedRoundCount <= 9) {
+            setLevel(3);
+            // setNumOfShapes(17);
+            console.log('New level reached: 3');
+        }
         return true;
     }
 
