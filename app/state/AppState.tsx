@@ -27,7 +27,7 @@ export const AppStateContext = createContext<AppStateContextType>({
     setIsStartButtonDisabled: () => {},
     level: 1,
     setLevel: () => {},
-    numOfShapes: 9,
+    numOfShapes: 4,
     setNumOfShapes: () => {},
 });
 
@@ -37,7 +37,7 @@ const AppStateProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) =
     const [roundCount, setRoundCount] = useState<number>(1);
     const [isStartButtonDisabled, setIsStartButtonDisabled] = useState<boolean>(false);
     const [level, setLevel] = useState<number>(1);
-    const [numOfShapes, setNumOfShapes] = useState<4 | 9 | 13 | 17>(9);
+    const [numOfShapes, setNumOfShapes] = useState<4 | 9 | 13 | 17>(4);
 
 
     return (

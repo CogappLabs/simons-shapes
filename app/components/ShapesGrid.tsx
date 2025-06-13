@@ -9,7 +9,14 @@ export const ShapesGrid: React.FC = () => {
 
     return (
         <div>
-            { numOfShapes === 4 && <p>Grid with 4 shapes</p> }
+            { numOfShapes === 4 && (
+                <div className="grid grid-cols-2 grid-rows-2 gap-4">
+                    <ShapeButton shape='square' color='red' />
+                    <ShapeButton shape='square' color='yellow' />
+                    <ShapeButton shape='square' color='green' />
+                    <ShapeButton shape='square' color='blue' />
+                </div>
+            ) }
 
             { numOfShapes === 9 && (
                 <CentralShapesGrid />

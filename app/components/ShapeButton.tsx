@@ -46,10 +46,14 @@ export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color, rotation
 
         if (updatedRoundCount > 2 && updatedRoundCount <= 4) {
             setLevel(2);
-            setNumOfShapes(13);
+            setNumOfShapes(9);
             console.log('New level reached: 2');
         } else if (updatedRoundCount > 4 && updatedRoundCount <= 6) {
             setLevel(3);
+            setNumOfShapes(13);
+            console.log('New level reached: 3');
+        } else if (updatedRoundCount > 6 && updatedRoundCount <= 8) {
+            setLevel(4);
             setNumOfShapes(17);
             console.log('New level reached: 3');
         }
