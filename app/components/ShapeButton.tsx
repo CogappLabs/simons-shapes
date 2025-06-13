@@ -34,7 +34,7 @@ export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color, rotation
             setRoundCount(1);
             setIsStartButtonDisabled(false);
             setLevel(1);
-            setNumOfShapes(9);
+            setNumOfShapes(4);
             return false;
         }
     
