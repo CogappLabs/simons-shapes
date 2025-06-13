@@ -6,8 +6,10 @@ export const SimonsDisplay: React.FC = () => {
     const { simonsInstructions, setSimonsInstructions } = useContext(AppStateContext as React.Context<AppStateContextType>);
 
     return (
-        <div key={simonsInstructions.join(', ')} id="scroll-container" className="w-full">
-            <div id="scroll-text">Simon says: {simonsInstructions.join(', ')}</div>
+        <div className="grid grid-cols-5 gap-4">
+            <div key={simonsInstructions.join(', ')} id="scroll-container" className="w-[100px] col-start-3 col-end-4">
+                <p id="scroll-text">Simon says: {simonsInstructions.join(', ')}</p>
+            </div>
         </div>
     );
 }
