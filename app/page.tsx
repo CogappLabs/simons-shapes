@@ -26,9 +26,6 @@ export default function Home() {
           <ShapesGrid />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <p>Simon Says Game by Hannah</p>
-      </footer>
     </div>
   );
 }
