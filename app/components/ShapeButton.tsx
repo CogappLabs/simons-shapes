@@ -28,7 +28,6 @@ export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color, rotation
 
     const checkAnswers = (answers: string[]): boolean => {         
         if (answers.join(', ') !== simonsInstructions.join(', ')) {
-            console.log('Game lost');
             setLoggedAnswers([]);
             setSimonsInstructions(['Game over!']);
             setRoundCount(1);
@@ -37,7 +36,6 @@ export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color, rotation
             return false;
         }
     
-        console.log('Round won');
         const updatedRoundCount = roundCount + 1;
         setRoundCount(updatedRoundCount);
         setSimonsInstructions(getSimonsInstructions(level, updatedRoundCount, answers));
@@ -46,15 +44,12 @@ export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color, rotation
         if (updatedRoundCount > 2 && updatedRoundCount <= 4) {
             setLevel(2);
             setNumOfShapes(9);
-            console.log('New level reached: 2');
         } else if (updatedRoundCount > 4 && updatedRoundCount <= 6) {
             setLevel(3);
             setNumOfShapes(13);
-            console.log('New level reached: 3');
         } else if (updatedRoundCount > 6 && updatedRoundCount <= 8) {
             setLevel(4);
             setNumOfShapes(17);
-            console.log('New level reached: 3');
         }
         return true;
     }
@@ -62,12 +57,10 @@ export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color, rotation
     const handleClick = (): void => {
         const updatedLoggedAnswers = [...loggedAnswers, `${color} ${shape}`];
 
-        console.log(updatedLoggedAnswers);
-
         setLoggedAnswers(updatedLoggedAnswers);
 
         if (updatedLoggedAnswers.length === simonsInstructions.length) {
-            // TODO: Can I pass loggedAnswers?
+            // TODO: Why can't I pass loggedAnswers?
             checkAnswers(updatedLoggedAnswers);
         }
     }

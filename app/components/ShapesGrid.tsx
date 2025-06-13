@@ -5,7 +5,6 @@ import { ShapeButton } from './ShapeButton';
 
 export const ShapesGrid: React.FC = () => {
     const { numOfShapes } = useContext(AppStateContext as React.Context<AppStateContextType>);
-    console.log('Num of shapes', numOfShapes);
 
     return (
         <div>
