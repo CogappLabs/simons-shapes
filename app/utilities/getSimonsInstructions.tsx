@@ -1,17 +1,24 @@
 export default function getSimonsInstructions(level: number, count: number, currentInstructions?: string[]): string[] { 
-    const possibilities: string[] = ['red square', 'blue square', 'green square', 'yellow square'];
+    const roundOnePossibilities: string[] = ['red square', 'blue square', 'green square', 'yellow square'];
+    const roundTwoAdditionalPossibilities: string[] = ['red circle', 'blue circle', 'green circle', 'yellow circle', 'purple star'];
+    const roundThreeAdditionalPossibilities: string[] = ['red triangle', 'blue triangle', 'green triangel', 'yellow triangle'];
+    const roundFourAdditionalPossibilities: string[] = ['red star', 'blue star', 'green star', 'yellow star'];
 
-    // TODO: Do you need these to add on like this? Am I duplicating possibilities? 
+    let possibilities = [...roundOnePossibilities];
+
     if (level === 2) {
-        possibilities.push('red circle', 'blue circle', 'green circle', 'yellow circle', 'purple star');
+        possibilities = [...roundOnePossibilities, ...roundTwoAdditionalPossibilities];
+        console.log('Level 2:', possibilities);
     }
     
     if (level === 3) {
-        possibilities.push('red circle', 'blue circle', 'green circle', 'yellow circle', 'purple star', 'red triangle', 'blue triangle', 'green triangel', 'yellow triangle');
+        possibilities = [...roundOnePossibilities, ...roundTwoAdditionalPossibilities, ...roundThreeAdditionalPossibilities];
+        console.log('Level 3:', possibilities);
     } 
     
     if (level === 4) {
-        possibilities.push('red circle', 'blue circle', 'green circle', 'yellow circle', 'purple star', 'red triangle', 'blue triangle', 'green triangel', 'yellow triangle', 'red star', 'blue star', 'green star', 'yellow star');
+        possibilities = [...roundOnePossibilities, ...roundTwoAdditionalPossibilities, ...roundThreeAdditionalPossibilities, ...roundFourAdditionalPossibilities];
+        console.log('Level 4:', possibilities);
     }
 
     const instructions: string[] = currentInstructions ? currentInstructions : [];
