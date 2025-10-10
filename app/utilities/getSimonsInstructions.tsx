@@ -8,17 +8,14 @@ export default function getSimonsInstructions(level: number, count: number, curr
 
     if (level === 2) {
         possibilities = [...roundOnePossibilities, ...roundTwoAdditionalPossibilities];
-        console.log('Level 2:', possibilities);
     }
     
     if (level === 3) {
         possibilities = [...roundOnePossibilities, ...roundTwoAdditionalPossibilities, ...roundThreeAdditionalPossibilities];
-        console.log('Level 3:', possibilities);
     } 
     
     if (level === 4) {
         possibilities = [...roundOnePossibilities, ...roundTwoAdditionalPossibilities, ...roundThreeAdditionalPossibilities, ...roundFourAdditionalPossibilities];
-        console.log('Level 4:', possibilities);
     }
 
     const instructions: string[] = currentInstructions ? currentInstructions : [];
