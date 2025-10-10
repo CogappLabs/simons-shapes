@@ -38,19 +38,26 @@ export const ShapeButton: React.FC<ShapeButtonProps> = ({ shape, color, rotation
     
         const updatedRoundCount = roundCount + 1;
         setRoundCount(updatedRoundCount);
-        setSimonsInstructions(getSimonsInstructions(level, updatedRoundCount, answers));
-        setLoggedAnswers([]);
-
+        
+        // Determine the new level first
+        let newLevel = level;
         if (updatedRoundCount > 2 && updatedRoundCount <= 4) {
+            newLevel = 2;
             setLevel(2);
             setNumOfShapes(9);
         } else if (updatedRoundCount > 4 && updatedRoundCount <= 6) {
+            newLevel = 3;
             setLevel(3);
             setNumOfShapes(13);
         } else if (updatedRoundCount > 6 && updatedRoundCount <= 8) {
+            newLevel = 4;
             setLevel(4);
             setNumOfShapes(17);
         }
+        
+        // Use the new level value directly
+        setSimonsInstructions(getSimonsInstructions(newLevel, updatedRoundCount, answers));
+        setLoggedAnswers([]);
         return true;
     }
 
