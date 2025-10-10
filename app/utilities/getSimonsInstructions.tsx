@@ -1,7 +1,7 @@
 export default function getSimonsInstructions(level: number, count: number, currentInstructions?: string[]): string[] { 
     const roundOnePossibilities: string[] = ['red square', 'blue square', 'green square', 'yellow square'];
     const roundTwoAdditionalPossibilities: string[] = ['red circle', 'blue circle', 'green circle', 'yellow circle', 'purple star'];
-    const roundThreeAdditionalPossibilities: string[] = ['red triangle', 'blue triangle', 'green triangel', 'yellow triangle'];
+    const roundThreeAdditionalPossibilities: string[] = ['red triangle', 'blue triangle', 'green triangle', 'yellow triangle'];
     const roundFourAdditionalPossibilities: string[] = ['red star', 'blue star', 'green star', 'yellow star'];
 
     let possibilities = [...roundOnePossibilities];
