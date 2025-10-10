@@ -31,7 +31,7 @@ export const AppStateContext = createContext<AppStateContextType>({
     setNumOfShapes: () => {},
 });
 
-const AppStateProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+const AppStateProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     const [loggedAnswers, setLoggedAnswers] = useState<string[]>([]);
     const [simonsInstructions, setSimonsInstructions] = useState<string[]>([]);
     const [roundCount, setRoundCount] = useState<number>(1);
