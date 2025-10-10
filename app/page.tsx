@@ -8,7 +8,7 @@ export default function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col row-start-2 items-center sm:items-start">
         <div className="mb-4">
-          <h1 className="mb-4 text-2xl font-bold">Simon Says</h1>
+          <h1 className="mb-4 text-2xl font-bold">Simon&apos;s Shapes</h1>
           <p className="mb-2">
             <span className="font-bold">
               How to play:&nbsp;
